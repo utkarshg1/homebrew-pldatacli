@@ -9,10 +9,10 @@ class Pldatacli < Formula
 
   def install
     system Formula["uv"].opt_bin/"uv", "pip", "install",
-    "--python", "python3.12",
-    "--target", libexec.to_s,
-    "pldatacli"
-    bin.write_exec_script libexec/"bin/pldatacli"
+      "--python", "python3.12",
+      "--prefix", libexec.to_s,
+      "pldatacli"
+    bin.install libexec/"bin/pldatacli"
   end
 
   test do
