@@ -9,6 +9,7 @@ class Pldatacli < Formula
 
   def install
     ENV["UV_TOOL_BIN_DIR"] = bin.to_s
+    ENV["HOME"] = buildpath.to_s
     system "uv", "tool", "install", "pldatacli"
   end
 
