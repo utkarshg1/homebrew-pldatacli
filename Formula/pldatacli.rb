@@ -8,11 +8,15 @@ class Pldatacli < Formula
   depends_on "uv" => :build
 
   def install
+    venv_path = libexec/".venv"
+    system Formula["uv"].opt_bin/"uv", "venv", venv_path.to_s
     system Formula["uv"].opt_bin/"uv", "pip", "install",
-      "--python", "python3.12",
-      "--prefix", libexec.to_s,
+      "--python", (venv_path/"bin/python").to_s,
       "pldatacli"
-    bin.install libexec/"bin/pldatacli"
+    (bin/"pldatacli").write_env_script(
+    venv_path/"bin/pldatacli",
+    PYTHONPATH: (venv_path/"lib/python3.12/site-packages").to_s
+  )
   end
 
   test do
