@@ -1,4 +1,6 @@
 class Pldatacli < Formula
+  include Language::Python::Virtualenv
+
   desc "CLI for fast CSV analysis using Polars LazyFrame"
   homepage "https://github.com/utkarshg1/pldatacli"
   url "https://files.pythonhosted.org/packages/source/p/pldatacli/pldatacli-0.1.8.tar.gz"
