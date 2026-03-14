@@ -8,7 +8,8 @@ class Pldatacli < Formula
   depends_on "uv" => :build
 
   def install
-    system "uv", "tool", "install", "pldatacli", "--bin-dir", bin
+    ENV["UV_TOOL_BIN_DIR"] = bin
+    system "uv", "tool", "install", "pldatacli"
   end
 
   test do
