@@ -5,11 +5,12 @@ class Pldatacli < Formula
   sha256 "fbacf7e2046eca81e8e62b0194ff74a3f1441892667f4b9c72767722cad1c408"
   license "MIT"
 
-  depends_on "uv" => :build
+  depends_on "python@3.12"
 
   def install
-    ENV["UV_TOOL_BIN_DIR"] = bin
-    system "uv", "tool", "install", "pldatacli"
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install "pldatacli"
+    bin.install libexec/"bin/pldatacli"
   end
 
   test do
