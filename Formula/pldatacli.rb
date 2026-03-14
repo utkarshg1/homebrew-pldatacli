@@ -8,9 +8,11 @@ class Pldatacli < Formula
   depends_on "uv" => :build
 
   def install
-    ENV["UV_TOOL_BIN_DIR"] = bin.to_s
-    ENV["HOME"] = buildpath.to_s
-    system "uv", "tool", "install", "pldatacli"
+    system Formula["uv"].opt_bin/"uv", "pip", "install",
+    "--python", "python3.12",
+    "--target", libexec.to_s,
+    "pldatacli"
+    bin.write_exec_script libexec/"bin/pldatacli"
   end
 
   test do
