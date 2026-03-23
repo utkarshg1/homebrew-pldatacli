@@ -2,7 +2,7 @@ class Pldatacli < Formula
   desc "CLI for fast CSV analysis using Polars LazyFrame"
   homepage "https://github.com/utkarshg1/pldatacli"
   url "https://files.pythonhosted.org/packages/source/p/pldatacli/pldatacli-0.3.0.tar.gz"
-  sha256 "df13c921e1efb4b21b31b89396dde16132577b46866ef4d80cf7e665f624d3a2"
+  sha256 "b6954881605a804815f00ff8b37d048464f1e9407404c1b5c33b24274c923fde"
   license "MIT"
 
   depends_on "uv" => :build
